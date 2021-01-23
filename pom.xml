@@ -44,4 +44,10 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>maven-repository</id>
+			<url>file:///Users/sk20560/.m2/repository/</url>
+		</repository>
+	</distributionManagement>
 </project>
