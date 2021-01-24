@@ -11,14 +11,14 @@ pipeline {
         stage('Unit Testing'){
             steps {
                 withMaven(maven: 'Maven-3.6.3.1'){
-                    sh 'mvn -Dtest=UnitTestsSuite test'
+                    sh 'mvn -Dtest=com.sridhar.pipeline.unit.tests.MessageControllerTest test'
                 }
             }
         }
         stage('Integration Testing'){
             steps {
                 withMaven(maven: 'Maven-3.6.3.1'){
-                    sh 'mvn -Dtest=IntegrationsTestsSuite test'
+                    sh 'mvn -Dtest=com.sridhar.pipeline.integration.tests.MessageControllerIntegrationTest test'
                 }
             }
         }

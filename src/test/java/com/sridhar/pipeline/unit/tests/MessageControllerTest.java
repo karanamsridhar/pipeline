@@ -4,11 +4,10 @@ import com.sridhar.pipeline.MessageController;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class MessageControllerTest {
+public class MessageControllerTest {
 
     @Test
-    void getMessage() {
+    public void getMessage() {
         MessageController controller = new MessageController();
         String response = controller.getMessage("Sridhar");
         assertEquals("Hello, Sridhar", response);

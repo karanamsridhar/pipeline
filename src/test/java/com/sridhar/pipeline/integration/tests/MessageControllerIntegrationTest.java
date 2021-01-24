@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(MessageController.class)
-class MessageControllerIntegrationTest {
+public class MessageControllerIntegrationTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    void getMessage() throws Exception {
+    public void getMessage() throws Exception {
         RequestBuilder request = MockMvcRequestBuilders.get("/messages/greet/Sridhar");
         MvcResult result = mvc.perform(request).andReturn();
         assertEquals("Hello, Sridhar", result.getResponse().getContentAsString());
