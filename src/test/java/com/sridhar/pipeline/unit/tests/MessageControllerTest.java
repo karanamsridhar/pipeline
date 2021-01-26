@@ -10,6 +10,6 @@ public class MessageControllerTest {
     public void getMessage() {
         MessageController controller = new MessageController();
         String response = controller.getMessage("Sridhar");
-        assertEquals("Hello, Sridhar", response);
+        assertEquals("Hello, Sridhar, Kubernetes is fun !!", response);
     }
 }

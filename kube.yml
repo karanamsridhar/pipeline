@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-pipeline
+  labels:
+    app: spring-boot-pipeline
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-pipeline
+  template:
+    metadata:
+      labels:
+        app: spring-boot-pipeline
+    spec:
+      containers:
+        - name: spring-boot-pipeline
+          image: docker.io/karanamsridhar/spring-boot-pipeline:v2
+          ports:
+            - containerPort: 8082
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-pipeline-service
+  labels:
+    name: spring-boot-pipeline-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 8082
+      protocol: TCP
+  selector:
+    app: spring-boot-pipeline
+  type: NodePort

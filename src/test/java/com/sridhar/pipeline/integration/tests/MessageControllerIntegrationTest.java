@@ -24,6 +24,6 @@ public class MessageControllerIntegrationTest {
     public void getMessage() throws Exception {
         RequestBuilder request = MockMvcRequestBuilders.get("/messages/greet/Sridhar");
         MvcResult result = mvc.perform(request).andReturn();
-        assertEquals("Hello, Sridhar", result.getResponse().getContentAsString());
+        assertEquals("Hello, Sridhar, Kubernetes is fun !!", result.getResponse().getContentAsString());
     }
 }

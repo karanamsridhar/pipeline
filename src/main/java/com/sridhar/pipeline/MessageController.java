@@ -11,6 +11,6 @@ public class MessageController {
 
     @GetMapping(value = "/greet/{name}")
     public String getMessage(@PathVariable String name){
-        return "Hello, "+name;
+        return "Hello, "+name +", Kubernetes is fun !!";
     }
 }
