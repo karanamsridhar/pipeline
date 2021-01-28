@@ -7,3 +7,7 @@ steps:
     image: openjdk
     commands:
       - ./mvnw clean compile
+  - name: Package
+    image: openjdk
+    commands:
+      - ./mvnw package -Djib.to.auth.username=$docker_username -Djib.to.auth.password=$docker_password -Djib.to.image=docker.io/karanamsridhar/spring-boot-pipeline:v3
