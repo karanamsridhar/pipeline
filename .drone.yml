@@ -9,7 +9,7 @@ steps:
       PASSWORD:
         from_secret: docker_password
     commands:
-      - echo $${PASSWORD}
+      - echo ${PASSWORD}
 #    environment:
 #      USERNAME:
 #        from_secret: docker_username
