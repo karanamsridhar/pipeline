@@ -10,6 +10,8 @@ steps:
       - ./mvnw package
   - name: Publish Image
     image: plugins/docker
-    repo: karanamsridhar/spring-boot-pipeline
-    username: ${DOCKER_USERNAME}
-    password: ${DOCKER_PASSWORD}
+    settings:
+      repo: karanamsridhar/spring-boot-pipeline
+      username: ${DOCKER_USERNAME}
+      password: ${DOCKER_PASSWORD}
+      tags: latest
