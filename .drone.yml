@@ -3,16 +3,17 @@ kind: pipeline
 type: docker
 
 steps:
-  - name: Compile
-    image: openjdk
-    environment:
-      USERNAME:
-        from_secret: docker_username
-      PASSWORD:
-        from_secret: docker_password
-    commands:
-      - ./mvnw clean compile
-  - name: Package
+  - name: Compile And Package
     image: openjdk
     commands:
-      - ./mvnw package -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD -Djib.to.image=docker.io/karanamsridhar/spring-boot-pipeline:v3
+      - echo $DOCKER_USERNAME
+      - echo $DOCKER_PASSWORD
+    secrets: [ docker_username, docker_password ]
+#    environment:
+#      USERNAME:
+#        from_secret: docker_username
+#      PASSWORD:
+#        from_secret: docker_password
+#    commands:
+#      - ./mvnw clean compile
+#      - ./mvnw package -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD -Djib.to.image=docker.io/karanamsridhar/spring-boot-pipeline:v3
