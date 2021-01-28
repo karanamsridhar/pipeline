@@ -5,10 +5,11 @@ type: docker
 steps:
   - name: Compile And Package
     image: openjdk
+    environment:
+      PASSWORD:
+        from_secret: docker_password
     commands:
-      - echo $DOCKER_USERNAME
-      - echo $DOCKER_PASSWORD
-    secrets: [ docker_username, docker_password ]
+      - echo $${PASSWORD}
 #    environment:
 #      USERNAME:
 #        from_secret: docker_username
