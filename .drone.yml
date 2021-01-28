@@ -3,7 +3,7 @@ kind: pipeline
 type: docker
 
 steps:
-  - name: build
+  - name: Compile
     image: alpine
     commands:
-      - echo Successful
+      - ./mvnw clean compile
