@@ -6,15 +6,10 @@ steps:
   - name: Compile And Package
     image: openjdk
     environment:
+      USERNAME:
+        from_secret: docker_username
       PASSWORD:
         from_secret: docker_password
     commands:
-      - echo ${PASSWORD}
-#    environment:
-#      USERNAME:
-#        from_secret: docker_username
-#      PASSWORD:
-#        from_secret: docker_password
-#    commands:
-#      - ./mvnw clean compile
-#      - ./mvnw package -Djib.to.auth.username=$USERNAME -Djib.to.auth.password=$PASSWORD -Djib.to.image=docker.io/karanamsridhar/spring-boot-pipeline:v3
+      - ./mvnw clean compile
+      - ./mvnw package -Djib.to.auth.username=${USERNAME} -Djib.to.auth.password=${PASSWORD} -Djib.to.image=docker.io/karanamsridhar/spring-boot-pipeline:v3
