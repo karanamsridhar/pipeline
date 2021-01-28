@@ -1,0 +1,9 @@
+name: pipeline-application
+kind: pipeline
+type: docker
+
+steps:
+  - name: build
+    image: alpine
+    commands:
+      echo "Successfull"
