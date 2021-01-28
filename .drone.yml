@@ -4,6 +4,6 @@ type: docker
 
 steps:
   - name: Compile
-    image: maven:3.5.0-alpine
+    image: openjdk
     commands:
       - mvn clean compile
