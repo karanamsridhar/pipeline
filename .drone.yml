@@ -4,6 +4,6 @@ type: docker
 
 steps:
   - name: Compile
-    image: alpine
+    image: maven:3.5.0-alpine
     commands:
-      - ./mvnw clean compile
+      - mvn clean compile
